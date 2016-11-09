@@ -15,6 +15,8 @@ namespace Example
         [Test]
         public void Test1()
         {
+            Console.WriteLine("OUT CLASS2");
+
             System.Threading.Thread.Sleep(2000);
         }
 

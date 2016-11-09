@@ -54,7 +54,7 @@ Task("Connect-ReportPortal")
 	.IsDependentOn("Build")
 	.Does(() =>
 {
-	System.IO.File.WriteAllText("tools/NUnit.ConsoleRunner/tools/ReportPortal.addins", "../../../src/Example/bin/" + configuration + "/ReportPortal.NUnit.dll");
+	System.IO.File.WriteAllText("tools/NUnit.ConsoleRunner/tools/ReportPortal.addins", "../../../src/Example/bin/" + configuration + "/ReportPortal.NUnitExtension.dll");
 });
 
 Task("Run-Unit-Tests")
@@ -62,7 +62,8 @@ Task("Run-Unit-Tests")
 	.Does(() =>
 {
 	NUnit3("./src/**/bin/" + configuration + "/Example.dll", new NUnit3Settings {
-		NoResults = true
+		NoResults = true,
+		TeamCity = true
 		});
 });
 
