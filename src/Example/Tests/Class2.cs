@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Example
+namespace Example.Tests
 {
     [Parallelizable]
     [Category("TF2")]
@@ -30,6 +30,7 @@ namespace Example
         public void Test3()
         {
             System.Threading.Thread.Sleep(7000);
+            Assert.Fail("test failed.");
         }
     }
 }

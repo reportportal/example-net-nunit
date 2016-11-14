@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Example
+namespace Example.Tests
 {
     [Parallelizable]
     [TestFixture]
@@ -15,7 +15,7 @@ namespace Example
         [Test]
         public void Test1()
         {
-            Console.WriteLine("QWEQWEQWE");
+            Console.WriteLine(TestContext.CurrentContext.Test.ID);
             Console.WriteLine("ASDASD");
             System.Threading.Thread.Sleep(3000);
         }

@@ -13,14 +13,23 @@ namespace Example.ReportPortalCustomization
         public Customization()
         {
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeRunStarted += ReportPortalListener_BeforeRunStarted;
+            ReportPortal.NUnitExtension.ReportPortalListener.BeforeSuiteStarted += ReportPortalListener_BeforeSuiteStarted;
+        }
+
+        private void ReportPortalListener_BeforeSuiteStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
+        {
+            if (e.TestItem.Name == "Example.dll")
+            {
+                e.Canceled = true;
+            }
         }
 
         private void ReportPortalListener_BeforeRunStarted(object sender, ReportPortal.NUnitExtension.EventArguments.RunStartedEventArgs e)
         {
-            // add tag
+            // add custom tag
             e.Launch.Tags.Add("custom_tag");
 
-            // change description
+            // change custom description
             e.Launch.Description += Environment.NewLine + Environment.OSVersion;
         }
 
