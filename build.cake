@@ -61,10 +61,14 @@ Task("Run-Unit-Tests")
 	.IsDependentOn("Connect-ReportPortal")
 	.Does(() =>
 {
-	NUnit3("./src/**/bin/" + configuration + "/Example.dll", new NUnit3Settings {
-		NoResults = true,
-		TeamCity = true
-		});
+	try
+	{
+		NUnit3("./src/**/bin/" + configuration + "/Example.dll", new NUnit3Settings {
+			NoResults = true,
+			TeamCity = true
+			});
+	}
+	catch(Exception exp) {}
 });
 
 //////////////////////////////////////////////////////////////////////
