@@ -9,6 +9,7 @@ namespace Example.Tests
 {
     [Parallelizable]
     [TestFixture]
+    [Description("this is description for Class1")]
     public class Class1
     {
         [Category("T1")]
@@ -21,6 +22,7 @@ namespace Example.Tests
         }
 
         [Test]
+        [Description("this is description for Test2")]
         public void Test2()
         {
             System.Threading.Thread.Sleep(5000);

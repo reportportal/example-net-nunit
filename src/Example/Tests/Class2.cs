@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Example.Tests
 {
     [Parallelizable]
-    [Category("TF2")]
+    [Category("Category 1"), Category("Category 2")]
     [TestFixture]
     public class Class2
     {
