@@ -59,15 +59,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Client.1.2.1.55-prerelease\lib\ReportPortal.Client.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Client.1.2.2\lib\ReportPortal.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.NUnitExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.3.0.0.12-prerelease\lib\ReportPortal.NUnitExtension.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.NUnit.3.0.0-beta-13\lib\ReportPortal.NUnitExtension.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Shared.1.1.1\lib\ReportPortal.Shared.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Shared.1.1.2\lib\ReportPortal.Shared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.1.0, Culture=neutral, processorArchitecture=MSIL">
