@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using ReportPortal.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Example.Tests
         [Test]
         public void Test1()
         {
-            Console.WriteLine("OUT CLASS2");
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class2 test1 log message");
 
             System.Threading.Thread.Sleep(2000);
         }
