@@ -25,6 +25,7 @@ namespace Example.Tests
         [Description("this is description for Test2")]
         public void Test2()
         {
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test2 log message");
             System.Threading.Thread.Sleep(5000);
         }
     }
