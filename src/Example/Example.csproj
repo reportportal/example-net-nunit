@@ -59,15 +59,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Client.1.2.6\lib\ReportPortal.Client.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Client.1.2.7\lib\ReportPortal.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.NUnitExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.3.0.0-beta-21\lib\ReportPortal.NUnitExtension.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.NUnit.3.1.0\lib\ReportPortal.NUnitExtension.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Shared.1.1.3\lib\ReportPortal.Shared.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Shared.1.3.0\lib\ReportPortal.Shared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -84,7 +84,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReportPortalCustomization\BridgeExtension.cs" />
     <Compile Include="Tests\Class2.cs" />
     <Compile Include="Tests\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
