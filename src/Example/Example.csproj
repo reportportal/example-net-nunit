@@ -31,43 +31,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Engine.3.6.0\lib\Mono.Cecil.dll</HintPath>
+      <HintPath>..\packages\NUnit.Engine.3.6.1\lib\Mono.Cecil.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit-agent, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Engine.3.6.0\lib\nunit-agent.exe</HintPath>
+    <Reference Include="nunit-agent, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.Engine.3.6.1\lib\nunit-agent.exe</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit-agent-x86, Version=3.6.0.0, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\NUnit.Engine.3.6.0\lib\nunit-agent-x86.exe</HintPath>
+    <Reference Include="nunit-agent-x86, Version=3.6.1.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\NUnit.Engine.3.6.1\lib\nunit-agent-x86.exe</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.engine, Version=3.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Engine.3.6.0\lib\nunit.engine.dll</HintPath>
+    <Reference Include="nunit.engine, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.Engine.3.6.1\lib\nunit.engine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.engine.api, Version=3.0.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Engine.3.6.0\lib\nunit.engine.api.dll</HintPath>
+      <HintPath>..\packages\NUnit.Engine.Api.3.6.1\lib\nunit.engine.api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Client.1.2.7\lib\ReportPortal.Client.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Client.1.2.8\lib\ReportPortal.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.NUnitExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.3.1.0\lib\ReportPortal.NUnitExtension.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.NUnit.3.2.1\lib\ReportPortal.NUnitExtension.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReportPortal.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Shared.1.3.0\lib\ReportPortal.Shared.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Shared.1.4.1\lib\ReportPortal.Shared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -90,6 +90,7 @@
     <Compile Include="ReportPortalCustomization\Customization.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="ReportPortal.conf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -97,6 +98,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

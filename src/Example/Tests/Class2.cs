@@ -17,20 +17,17 @@ namespace Example.Tests
         public void Test1()
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class2 test1 log message");
-
-            System.Threading.Thread.Sleep(2000);
         }
 
         [Test]
         public void Test2()
         {
-            System.Threading.Thread.Sleep(6000);
+
         }
 
         [Test]
         public void Test3()
         {
-            System.Threading.Thread.Sleep(7000);
             Assert.Fail("test failed.");
         }
     }

@@ -18,7 +18,8 @@ namespace Example.Tests
         public void Test1()
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test1 log message");
-            System.Threading.Thread.Sleep(3000);
+            var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
         }
 
         [Test]
@@ -26,7 +27,6 @@ namespace Example.Tests
         public void Test2()
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test2 log message");
-            System.Threading.Thread.Sleep(5000);
         }
     }
 }
