@@ -18,6 +18,7 @@ namespace Example.Tests
         public void Test1()
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test1 log message");
+
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
         }
