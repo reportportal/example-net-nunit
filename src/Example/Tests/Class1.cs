@@ -13,12 +13,14 @@ namespace Example.Tests
     [Description("this is description for Class1")]
     public class Class1
     {
+        protected log4net.ILog Log4NetLogger = log4net.LogManager.GetLogger(typeof(Class1));
+
         [Category("T1")]
         [Test]
         public void Test1()
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test1 log message");
-
+            Log4NetLogger.Info("My log message from Log4Net");
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
         }
