@@ -54,7 +54,7 @@ Task("Connect-ReportPortal")
 	.IsDependentOn("Build")
 	.Does(() =>
 {
-	System.IO.File.WriteAllText("tools/nunit.consolerunner.3.7.0/NUnit.ConsoleRunner/tools/ReportPortal.addins", "../../../../src/Example/bin/" + configuration + "/ReportPortal.NUnitExtension.dll\r\n../../../../src/Example/bin/" + configuration + "/Example.dll");
+	System.IO.File.WriteAllText("tools/nunit.consolerunner.3.7.0/tools/ReportPortal.addins", "../../../src/Example/bin/" + configuration + "/ReportPortal.NUnitExtension.dll\r\n../../../src/Example/bin/" + configuration + "/Example.dll");
 });
 
 Task("Run-Unit-Tests")
