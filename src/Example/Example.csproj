@@ -45,7 +45,7 @@
       <HintPath>..\packages\ReportPortal.Client.2.0.0\lib\net45\ReportPortal.Client.dll</HintPath>
     </Reference>
     <Reference Include="ReportPortal.Log4Net, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Log4Net.1.1.5-beta1\lib\net45\ReportPortal.Log4Net.dll</HintPath>
+      <HintPath>..\packages\ReportPortal.Log4Net.1.1.5-beta2\lib\net45\ReportPortal.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="ReportPortal.NUnitExtension, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.NUnit.3.3.0-beta2\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
