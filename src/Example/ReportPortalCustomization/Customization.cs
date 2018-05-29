@@ -14,6 +14,18 @@ namespace Example.ReportPortalCustomization
         {
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeRunStarted += ReportPortalListener_BeforeRunStarted;
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeSuiteStarted += ReportPortalListener_BeforeSuiteStarted;
+
+            ReportPortal.NUnitExtension.ReportPortalListener.AfterTestStarted += ReportPortalListener_AfterTestStarted;
+        }
+
+        private void ReportPortalListener_AfterTestStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
+        {
+            e.TestReporter.Log(new ReportPortal.Client.Requests.AddLogItemRequest
+            {
+                Level = ReportPortal.Client.Models.LogLevel.Trace,
+                Time = DateTime.UtcNow,
+                Text = "This message is from 'ReportPortalListener_AfterTestStarted' event."
+            });
         }
 
         private void ReportPortalListener_BeforeSuiteStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
