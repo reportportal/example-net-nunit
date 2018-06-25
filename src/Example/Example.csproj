@@ -48,8 +48,8 @@
     <Reference Include="ReportPortal.Log4Net, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.Log4Net.1.1.5-beta2\lib\net45\ReportPortal.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="ReportPortal.NUnitExtension, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.4.0.0\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
+    <Reference Include="ReportPortal.NUnitExtension, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportPortal.NUnit.3.3.1\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
     </Reference>
     <Reference Include="ReportPortal.Shared, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.Shared.2.0.0\lib\net45\ReportPortal.Shared.dll</HintPath>
