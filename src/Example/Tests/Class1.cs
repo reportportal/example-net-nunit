@@ -31,5 +31,23 @@ namespace Example.Tests
         {
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test2 log message");
         }
+
+        [Test]
+        [Description("Test should fail with timeout")]
+        [Timeout(1000)]
+        public void Test3()
+        {
+            System.Threading.Thread.Sleep(3000);
+        }
+
+        [Test, Retry(5)]
+        [Description("Test should be retried")]
+        public void Test4()
+        {
+            System.Threading.Thread.Sleep(3000);
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test4 log message");
+            //throw new Exception("abc");
+            Assert.IsTrue(false);
+        }
     }
 }
