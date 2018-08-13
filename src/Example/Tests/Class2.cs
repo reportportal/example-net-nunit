@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using ReportPortal.Shared;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,23 @@ namespace Example.Tests
         public void SyncTest()
         {
 
+        }
+
+        [Test, TestCaseSource(typeof(Class2), nameof(Source))]
+        public void TestWithTestCaseSource(int i)
+        {
+
+        }
+
+        private static IEnumerable Source
+        {
+            get
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    yield return new TestCaseData(i);
+                }
+            }
         }
     }
 }
