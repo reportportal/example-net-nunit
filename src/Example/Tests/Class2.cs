@@ -32,6 +32,12 @@ namespace Example.Tests
             Assert.Fail("test failed.");
         }
 
+        [Test, Description("My static description, and this test was executed on {MachineName} machine.")]
+        public void Test4()
+        {
+            
+        }
+
         [Test, Ignore("My ignore reason")]
         public void IgnoredTest()
         {

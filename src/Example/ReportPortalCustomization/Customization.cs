@@ -30,6 +30,13 @@ namespace Example.ReportPortalCustomization
                     Type = ReportPortal.Client.Models.WellKnownIssueType.NotDefect
                 };
             }
+
+            // modify description of tests
+            var pattern = "{MachineName}";
+            if (e.TestItem.Description != null && e.TestItem.Description.Contains(pattern))
+            {
+                e.TestItem.Description = e.TestItem.Description.Replace(pattern, Environment.MachineName);
+            }
         }
 
         private void ReportPortalListener_AfterTestStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
