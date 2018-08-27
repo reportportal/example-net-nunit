@@ -13,9 +13,23 @@ namespace Example.ReportPortalCustomization
         public Customization()
         {
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeRunStarted += ReportPortalListener_BeforeRunStarted;
+
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeSuiteStarted += ReportPortalListener_BeforeSuiteStarted;
 
             ReportPortal.NUnitExtension.ReportPortalListener.AfterTestStarted += ReportPortalListener_AfterTestStarted;
+            ReportPortal.NUnitExtension.ReportPortalListener.BeforeTestFinished += ReportPortalListener_BeforeTestFinished;
+        }
+
+        private void ReportPortalListener_BeforeTestFinished(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemFinishedEventArgs e)
+        {
+            // don't assign "To investigate" for skipped tests
+            if (e.TestItem.Status == ReportPortal.Client.Models.Status.Skipped)
+            {
+                e.TestItem.Issue = new ReportPortal.Client.Models.Issue
+                {
+                    Type = ReportPortal.Client.Models.WellKnownIssueType.NotDefect
+                };
+            }
         }
 
         private void ReportPortalListener_AfterTestStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)

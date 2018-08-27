@@ -32,6 +32,12 @@ namespace Example.Tests
             Assert.Fail("test failed.");
         }
 
+        [Test, Ignore("My ignore reason")]
+        public void IgnoredTest()
+        {
+            
+        }
+
         [Test]
         [Description("This test should have actual unique ID in logs assigned by server")]
         public void SyncTest()
