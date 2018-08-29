@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests\FailedClass.cs" />
+    <Compile Include="Tests\EmptyClass.cs" />
     <Compile Include="Tests\IgnoredClass.cs" />
     <Compile Include="Tests\Class2.cs" />
     <Compile Include="Tests\Class1.cs" />
