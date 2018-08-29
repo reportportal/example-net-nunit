@@ -48,8 +48,8 @@
     <Reference Include="ReportPortal.Log4Net, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.Log4Net.1.1.5\lib\net45\ReportPortal.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="ReportPortal.NUnitExtension, Version=3.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.3.3.4\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
+    <Reference Include="ReportPortal.NUnitExtension, Version=3.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportPortal.NUnit.3.3.5\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
     </Reference>
     <Reference Include="ReportPortal.Shared, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.Shared.2.0.3\lib\net45\ReportPortal.Shared.dll</HintPath>
@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\FailedClass.cs" />
+    <Compile Include="Tests\IgnoredClass.cs" />
     <Compile Include="Tests\Class2.cs" />
     <Compile Include="Tests\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
