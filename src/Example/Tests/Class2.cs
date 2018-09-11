@@ -23,7 +23,7 @@ namespace Example.Tests
         [Test]
         public void Test2()
         {
-
+            Assert.Warn("My warn message");
         }
 
         [Test]
