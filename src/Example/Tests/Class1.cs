@@ -22,7 +22,14 @@ namespace Example.Tests
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test1 log message");
             Log4NetLogger.Info("My log message from Log4Net");
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
+
+            // add attachment into results
+            TestContext.AddTestAttachment(filePath, "my dog");
+
+            // or send directly to ReportPortal
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
+
+            
         }
 
         [Test]
