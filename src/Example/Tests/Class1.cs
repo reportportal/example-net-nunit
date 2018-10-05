@@ -24,10 +24,10 @@ namespace Example.Tests
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
 
             // add attachment into results
-            //TestContext.AddTestAttachment(filePath, "my dog");
+            TestContext.AddTestAttachment(filePath, "my dog");
 
             // or send directly to ReportPortal
-            //Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
 
             
         }
