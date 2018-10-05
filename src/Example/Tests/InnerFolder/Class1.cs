@@ -7,35 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Example.Tests
+namespace Example.Tests.InnerFolder
 {
-    [Parallelizable]
-    
     [TestFixture]
-    public class Class3
+    public class Class1
     {
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            throw new Exception("Setup exception.");
+            throw new Exception("OneTimeSetUp exception.");
         }
 
         [Test]
         public void Test1()
         {
-            
+
         }
 
         [Test]
         public void Test2()
         {
-            
-        }
 
-        [Test]
-        public void Test3()
-        {
-            
         }
     }
 }
