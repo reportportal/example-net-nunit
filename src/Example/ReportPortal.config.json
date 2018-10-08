@@ -1,4 +1,5 @@
 ﻿{
+  "$schema": "https://raw.githubusercontent.com/reportportal/agent-net-nunit/master/ReportPortal.NUnitExtension/ReportPortal.config.schema",
   "enabled": true,
   "server": {
     "url": "https://rp.epam.com/api/v1/",
