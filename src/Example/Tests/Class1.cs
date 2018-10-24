@@ -29,7 +29,8 @@ namespace Example.Tests
             // or send directly to ReportPortal
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
 
-            
+            var jsonBase64 = Convert.ToBase64String(Encoding.Default.GetBytes("{a: true}"));
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my json {rp#base64#application/json#" + jsonBase64 + "}");
         }
 
         [Test]
