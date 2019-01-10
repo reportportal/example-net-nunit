@@ -1,8 +1,5 @@
 ﻿using NUnit.Engine.Extensibility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Example.ReportPortalCustomization
@@ -23,9 +20,9 @@ namespace Example.ReportPortalCustomization
         private void ReportPortalListener_BeforeTestFinished(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemFinishedEventArgs e)
         {
             // don't assign "To investigate" for skipped tests
-            if (e.TestItem.Status == ReportPortal.Client.Models.Status.Skipped)
+            if (e.FinishTestItemRequest.Status == ReportPortal.Client.Models.Status.Skipped)
             {
-                e.TestItem.Issue = new ReportPortal.Client.Models.Issue
+                e.FinishTestItemRequest.Issue = new ReportPortal.Client.Models.Issue
                 {
                     Type = ReportPortal.Client.Models.WellKnownIssueType.NotDefect
                 };
@@ -33,9 +30,9 @@ namespace Example.ReportPortalCustomization
 
             // modify description of tests
             var pattern = "{MachineName}";
-            if (e.TestItem.Description != null && e.TestItem.Description.Contains(pattern))
+            if (e.FinishTestItemRequest.Description != null && e.FinishTestItemRequest.Description.Contains(pattern))
             {
-                e.TestItem.Description = e.TestItem.Description.Replace(pattern, Environment.MachineName);
+                e.FinishTestItemRequest.Description = e.FinishTestItemRequest.Description.Replace(pattern, Environment.MachineName);
             }
         }
 
@@ -48,11 +45,11 @@ namespace Example.ReportPortalCustomization
                 Text = "This message is from 'ReportPortalListener_AfterTestStarted' event."
             });
 
-            if (e.TestItem.Name.StartsWith("Sync"))
+            if (e.StartTestItemRequest.Name.StartsWith("Sync"))
             {
                 // waiting until test is being reported to the server and retrieve info
                 e.TestReporter.StartTask.Wait();
-                var infoTask = Task.Run(async () => await e.Service.GetTestItemAsync(e.TestReporter.TestId));
+                var infoTask = Task.Run(async () => await e.Service.GetTestItemAsync(e.TestReporter.TestInfo.Id));
                 infoTask.Wait();
                 var testInfo = infoTask.Result;
                 e.TestReporter.Log(new ReportPortal.Client.Requests.AddLogItemRequest
@@ -67,7 +64,7 @@ namespace Example.ReportPortalCustomization
 
         private void ReportPortalListener_BeforeSuiteStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
         {
-            if (e.TestItem.Name == "Example.dll")
+            if (e.StartTestItemRequest.Name == "Example.dll")
             {
                 e.Canceled = true;
             }
@@ -76,10 +73,10 @@ namespace Example.ReportPortalCustomization
         private void ReportPortalListener_BeforeRunStarted(object sender, ReportPortal.NUnitExtension.EventArguments.RunStartedEventArgs e)
         {
             // add custom tag
-            e.Launch.Tags.Add("custom_tag");
+            e.StartLaunchRequest.Tags.Add("custom_tag");
 
             // change custom description
-            e.Launch.Description += Environment.NewLine + Environment.OSVersion;
+            e.StartLaunchRequest.Description += Environment.NewLine + Environment.OSVersion;
         }
 
         public void OnTestEvent(string report)
