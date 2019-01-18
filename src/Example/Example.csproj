@@ -44,8 +44,8 @@
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="ReportPortal.Client, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Client.2.1.5\lib\net45\ReportPortal.Client.dll</HintPath>
+    <Reference Include="ReportPortal.Client, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportPortal.Client.2.1.7\lib\net45\ReportPortal.Client.dll</HintPath>
     </Reference>
     <Reference Include="ReportPortal.Log4Net, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.Log4Net.1.2.2\lib\net45\ReportPortal.Log4Net.dll</HintPath>
@@ -53,8 +53,8 @@
     <Reference Include="ReportPortal.NUnitExtension, Version=3.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReportPortal.NUnit.3.5.1\lib\net45\ReportPortal.NUnitExtension.dll</HintPath>
     </Reference>
-    <Reference Include="ReportPortal.Shared, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Shared.2.1.0\lib\net45\ReportPortal.Shared.dll</HintPath>
+    <Reference Include="ReportPortal.Shared, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportPortal.Shared.2.1.2\lib\net45\ReportPortal.Shared.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -100,12 +100,12 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.Client.2.1.5\build\ReportPortal.Client.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Client.2.1.5\build\ReportPortal.Client.targets'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.Shared.2.1.0\build\ReportPortal.Shared.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Shared.2.1.0\build\ReportPortal.Shared.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\ReportPortal.Client.2.1.7\build\ReportPortal.Client.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Client.2.1.7\build\ReportPortal.Client.targets'))" />
+    <Error Condition="!Exists('..\packages\ReportPortal.Shared.2.1.2\build\ReportPortal.Shared.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Shared.2.1.2\build\ReportPortal.Shared.targets'))" />
   </Target>
-  <Import Project="..\packages\ReportPortal.Client.2.1.5\build\ReportPortal.Client.targets" Condition="Exists('..\packages\ReportPortal.Client.2.1.5\build\ReportPortal.Client.targets')" />
-  <Import Project="..\packages\ReportPortal.Shared.2.1.0\build\ReportPortal.Shared.targets" Condition="Exists('..\packages\ReportPortal.Shared.2.1.0\build\ReportPortal.Shared.targets')" />
+  <Import Project="..\packages\ReportPortal.Client.2.1.7\build\ReportPortal.Client.targets" Condition="Exists('..\packages\ReportPortal.Client.2.1.7\build\ReportPortal.Client.targets')" />
+  <Import Project="..\packages\ReportPortal.Shared.2.1.2\build\ReportPortal.Shared.targets" Condition="Exists('..\packages\ReportPortal.Shared.2.1.2\build\ReportPortal.Shared.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
