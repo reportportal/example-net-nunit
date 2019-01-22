@@ -2,6 +2,7 @@
 using ReportPortal.Shared;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,17 @@ namespace Example.Tests
             Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test4 log message");
             //throw new Exception("abc");
             Assert.IsTrue(false);
+        }
+
+        [Test]
+        [Description("Reporting should work even if file attachment was deleted in runtime.")]
+        public void AttachmentsAreOptional()
+        {
+            var tempFile = Path.GetTempFileName();
+
+            TestContext.AddTestAttachment(tempFile);
+
+            File.Delete(tempFile);
         }
     }
 }
