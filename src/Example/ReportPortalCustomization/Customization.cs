@@ -11,8 +11,6 @@ namespace Example.ReportPortalCustomization
         {
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeRunStarted += ReportPortalListener_BeforeRunStarted;
 
-            ReportPortal.NUnitExtension.ReportPortalListener.BeforeSuiteStarted += ReportPortalListener_BeforeSuiteStarted;
-
             ReportPortal.NUnitExtension.ReportPortalListener.AfterTestStarted += ReportPortalListener_AfterTestStarted;
             ReportPortal.NUnitExtension.ReportPortalListener.BeforeTestFinished += ReportPortalListener_BeforeTestFinished;
         }
@@ -60,14 +58,6 @@ namespace Example.ReportPortalCustomization
                 });
             }
 
-        }
-
-        private void ReportPortalListener_BeforeSuiteStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
-        {
-            if (e.StartTestItemRequest.Name == "Example.dll")
-            {
-                e.Canceled = true;
-            }
         }
 
         private void ReportPortalListener_BeforeRunStarted(object sender, ReportPortal.NUnitExtension.EventArguments.RunStartedEventArgs e)

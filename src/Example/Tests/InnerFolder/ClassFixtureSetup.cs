@@ -19,6 +19,11 @@ namespace Example.Tests.InnerFolder
             throw new Exception("Assembly SetUpFixture exception.");
         }
 
-        
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "OneTimeTearDown message");
+            throw new Exception("Assembly TearDownFixture exception.");
+        }
     }
 }
