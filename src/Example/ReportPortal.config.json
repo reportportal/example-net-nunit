@@ -14,5 +14,5 @@
     "debugMode": true,
     "tags": [ "t1", "t2" ]
   },
-  "rootNamespaces": [ "Example.dll", "Example.Tests" ]
+  "rootNamespaces": [ "Example.dll", "Example", "Tests" ]
 }
