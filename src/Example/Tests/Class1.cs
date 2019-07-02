@@ -69,5 +69,22 @@ namespace Example.Tests
 
             File.Delete(tempFile);
         }
+
+        [Test]
+        public void TestMultipleAssertions()
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(2, 3, "The first failed assert");
+                Assert.AreEqual(4, 5, "The second failed assert");
+                throw new Exception("And exception and the end.");
+            });
+        }
+
+        [Test]
+        public void InconclusiveTest()
+        {
+            Assert.Inconclusive("Why this is inconclusive.");
+        }
     }
 }
