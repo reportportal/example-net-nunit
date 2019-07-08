@@ -1,4 +1,4 @@
-#tool nuget:?package=NUnit.ConsoleRunner&version=3.9.0
+#tool nuget:?package=NUnit.ConsoleRunner&version=3.10.0
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ Task("Connect-ReportPortal")
 	.IsDependentOn("Build")
 	.Does(() =>
 {
-	System.IO.File.WriteAllText("tools/nunit.consolerunner.3.9.0/tools/ReportPortal.addins", "../../../src/Example/bin/" + configuration + "/ReportPortal.NUnitExtension.dll\r\n../../../src/Example/bin/" + configuration + "/Example.dll");
+	System.IO.File.WriteAllText("tools/nunit.consolerunner.3.10.0/tools/ReportPortal.addins", "../../../src/Example/bin/" + configuration + "/ReportPortal.NUnitExtension.dll\r\n../../../src/Example/bin/" + configuration + "/Example.dll");
 });
 
 Task("Run-Unit-Tests")

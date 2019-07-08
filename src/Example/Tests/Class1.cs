@@ -86,5 +86,28 @@ namespace Example.Tests
         {
             Assert.Inconclusive("Why this is inconclusive.");
         }
+
+        [Test]
+        public void ManyLogMessages()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Log4NetLogger.Info($"Log {i}");
+            }
+        }
+
+        [Test]
+        public void ManyLogMessages2()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Log.Message(new ReportPortal.Client.Requests.AddLogItemRequest
+                {
+                    Level = ReportPortal.Client.Models.LogLevel.Info,
+                    Time = DateTime.UtcNow,
+                    Text = $"Log {i}"
+                });
+            }
+        }
     }
 }
