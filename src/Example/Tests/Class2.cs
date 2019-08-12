@@ -8,5 +8,11 @@ namespace Example.Tests
         {
             Assert.Fail("test failed.");
         }
+
+        [Test]
+        public void Test4()
+        {
+            throw new System.Exception("fail");
+        }
     }
 }
