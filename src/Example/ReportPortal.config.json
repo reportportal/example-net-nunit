@@ -4,9 +4,9 @@
 	"server": {
 		"url": "https://web.demo.reportportal.io/api/v1/",
 		"project": "default_personal",
-		"authentication": {
-			"uuid": "73258623-7e6d-47c4-b6af-6adddfd35cde"
-		}
+    "authentication": {
+      "uuid": "e4b514e3-4e0b-4325-a10a-2496bdeb52c3"
+    }
 	},
   "launch": {
     "name": "NUnit 3 Demo Launch",
