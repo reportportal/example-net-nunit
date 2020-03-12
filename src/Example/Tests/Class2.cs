@@ -41,13 +41,13 @@ namespace Example.Tests
         [Test, Description("My static description, and this test was executed on {MachineName} machine.")]
         public void Test4()
         {
-            
+
         }
 
         [Test, Ignore("My ignore reason")]
         public void IgnoredTest()
         {
-            
+
         }
 
         [Test]
@@ -58,19 +58,37 @@ namespace Example.Tests
         }
 
         [Test, TestCaseSource(typeof(Class2), nameof(Source))]
+        [Parallelizable(ParallelScope.Children)]
         public void TestWithTestCaseSource(int i)
         {
+            System.Threading.Thread.Sleep(5000);
 
+            for (int j = 0; j < 50; j++)
+            {
+                Log.Info($"Log #{j}");
+            }
         }
 
         private static IEnumerable Source
         {
             get
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     yield return new TestCaseData(i);
                 }
+            }
+        }
+
+        [Test, TestCaseSource(typeof(Class2), nameof(Source))]
+        [Parallelizable(ParallelScope.Children)]
+        public void TestWithTestCaseSource2(int i)
+        {
+            System.Threading.Thread.Sleep(5000);
+
+            for (int j = 0; j < 50; j++)
+            {
+                Log.Info($"Log #{j}");
             }
         }
     }
