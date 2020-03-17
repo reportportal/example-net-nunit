@@ -1,11 +1,7 @@
 ﻿using NUnit.Framework;
-using ReportPortal.Shared;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Example.Tests
 {
@@ -20,7 +16,7 @@ namespace Example.Tests
         [Test]
         public void Test1()
         {
-            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test1 log message");
+            ReportPortal.Shared.Log.Trace("class1 test1 log message");
             Log4NetLogger.Info("My log message from Log4Net");
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
 
@@ -28,17 +24,17 @@ namespace Example.Tests
             TestContext.AddTestAttachment(filePath, "my dog");
 
             // or send directly to ReportPortal
-            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my dog {rp#file#" + filePath + "}");
+            ReportPortal.Shared.Log.Info("my dog {rp#file#" + filePath + "}");
 
             var jsonBase64 = Convert.ToBase64String(Encoding.Default.GetBytes("{a: true}"));
-            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Info, "my json {rp#base64#application/json#" + jsonBase64 + "}");
+            ReportPortal.Shared.Log.Info("my json {rp#base64#application/json#" + jsonBase64 + "}");
         }
 
         [Test]
         [Description("this is description for Test2")]
         public void Test2()
         {
-            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test2 log message");
+            ReportPortal.Shared.Log.Trace("class1 test2 log message");
         }
 
         [Test]
@@ -54,7 +50,7 @@ namespace Example.Tests
         public void Test4()
         {
             System.Threading.Thread.Sleep(3000);
-            Bridge.LogMessage(ReportPortal.Client.Models.LogLevel.Trace, "class1 test4 log message");
+            ReportPortal.Shared.Log.Trace("class1 test4 log message");
             //throw new Exception("abc");
             Assert.IsTrue(false);
         }
@@ -101,7 +97,7 @@ namespace Example.Tests
         {
             for (int i = 0; i < 20; i++)
             {
-                Log.Message(new ReportPortal.Client.Requests.AddLogItemRequest
+                ReportPortal.Shared.Log.Message(new ReportPortal.Client.Requests.AddLogItemRequest
                 {
                     Level = ReportPortal.Client.Models.LogLevel.Info,
                     Time = DateTime.UtcNow,

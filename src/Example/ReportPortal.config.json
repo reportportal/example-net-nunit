@@ -1,13 +1,13 @@
 ﻿{
-  "$schema": "https://raw.githubusercontent.com/reportportal/agent-net-nunit/master/ReportPortal.NUnitExtension/ReportPortal.config.schema",
+  "$schema": "https://raw.githubusercontent.com/reportportal/agent-net-nunit/master/src/ReportPortal.NUnitExtension/ReportPortal.config.schema",
   "enabled": true,
-	"server": {
-		"url": "https://web.demo.reportportal.io/api/v1/",
-		"project": "default_personal",
+  "server": {
+    "url": "https://web.demo.reportportal.io/api/v1/",
+    "project": "default_personal",
     "authentication": {
-      "uuid": "e4b514e3-4e0b-4325-a10a-2496bdeb52c3"
+      "uuid": "19194c49-dad1-4ce0-9def-682caecbbabb"
     }
-	},
+  },
   "launch": {
     "name": "NUnit 3 Demo Launch",
     "description": "this is description",
