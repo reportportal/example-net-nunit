@@ -73,6 +73,8 @@ namespace Example.Tests
                     using (var scope2 = Log.BeginNewScope("Scope Level 2"))
                     {
                         Log.Debug("Level 2 message");
+
+                        scope2.Status = ReportPortal.Client.Abstractions.Models.Status.Failed;
                     }
                 }
             }
