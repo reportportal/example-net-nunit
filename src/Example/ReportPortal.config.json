@@ -12,7 +12,7 @@
     "name": "NUnit 3 Demo Launch",
     "description": "this is description",
     "debugMode": true,
-    "tags": [ "t1", "t2" ]
+    "attributes": [ "t1", "t2", "platform:x64" ]
   },
   "rootNamespaces": [ "Example.dll", "Example", "Tests" ]
 }

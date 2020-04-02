@@ -3,6 +3,7 @@ using ReportPortal.Client.Abstractions.Models;
 using ReportPortal.Client.Abstractions.Requests;
 using ReportPortal.Client.Abstractions.Responses;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Example.ReportPortalCustomization
@@ -66,7 +67,9 @@ namespace Example.ReportPortalCustomization
         private void ReportPortalListener_BeforeRunStarted(object sender, ReportPortal.NUnitExtension.EventArguments.RunStartedEventArgs e)
         {
             // add custom tag
-            e.StartLaunchRequest.Tags.Add("custom_tag");
+            var attrs = e.StartLaunchRequest.Attributes.ToList();
+            attrs.Add(new ItemAttribute { Value = "custom_tag" });
+            e.StartLaunchRequest.Attributes = attrs;
 
             // change custom description
             e.StartLaunchRequest.Description += Environment.NewLine + Environment.OSVersion;
