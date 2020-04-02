@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Example.Tests
 {
@@ -34,7 +35,35 @@ namespace Example.Tests
         [Description("this is description for Test2")]
         public void Test2()
         {
+            Thread.Sleep(1000);
+
             ReportPortal.Shared.Log.Trace("class1 test2 log message");
+
+            Thread.Sleep(1000);
+
+            using (var scope = ReportPortal.Shared.Log.BeginNewScope("qwe"))
+            {
+                Thread.Sleep(500);
+                scope.Debug("inner qwe");
+                Thread.Sleep(500);
+            }
+
+            Thread.Sleep(3000);
+
+            using (var scope = ReportPortal.Shared.Log.BeginNewScope("qwe"))
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Thread.Sleep(1);
+                    scope.Debug("inner qwe " + i);
+                    Thread.Sleep(1);
+                    ReportPortal.Shared.Log.Debug("one more inner qwe " + i);
+                }
+            }
+
+            Thread.Sleep(1000);
+
+            ReportPortal.Shared.Log.Info("End");
         }
 
         [Test]
