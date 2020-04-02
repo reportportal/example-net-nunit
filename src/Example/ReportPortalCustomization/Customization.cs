@@ -1,4 +1,7 @@
 ﻿using NUnit.Engine.Extensibility;
+using ReportPortal.Client.Abstractions.Models;
+using ReportPortal.Client.Abstractions.Requests;
+using ReportPortal.Client.Abstractions.Responses;
 using System;
 using System.Threading.Tasks;
 
@@ -18,11 +21,11 @@ namespace Example.ReportPortalCustomization
         private void ReportPortalListener_BeforeTestFinished(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemFinishedEventArgs e)
         {
             // don't assign "To investigate" for skipped tests
-            if (e.FinishTestItemRequest.Status == ReportPortal.Client.Models.Status.Skipped)
+            if (e.FinishTestItemRequest.Status == Status.Skipped)
             {
-                e.FinishTestItemRequest.Issue = new ReportPortal.Client.Models.Issue
+                e.FinishTestItemRequest.Issue = new Issue
                 {
-                    Type = ReportPortal.Client.Models.WellKnownIssueType.NotDefect
+                    Type = WellKnownIssueType.NotDefect
                 };
             }
 
@@ -36,9 +39,9 @@ namespace Example.ReportPortalCustomization
 
         private void ReportPortalListener_AfterTestStarted(object sender, ReportPortal.NUnitExtension.EventArguments.TestItemStartedEventArgs e)
         {
-            e.TestReporter.Log(new ReportPortal.Client.Requests.AddLogItemRequest
+            e.TestReporter.Log(new CreateLogItemRequest
             {
-                Level = ReportPortal.Client.Models.LogLevel.Trace,
+                Level = LogLevel.Trace,
                 Time = DateTime.UtcNow,
                 Text = "This message is from 'ReportPortalListener_AfterTestStarted' event."
             });
@@ -47,12 +50,12 @@ namespace Example.ReportPortalCustomization
             {
                 // waiting until test is being reported to the server and retrieve info
                 e.TestReporter.StartTask.Wait();
-                var infoTask = Task.Run(async () => await e.Service.GetTestItemAsync(e.TestReporter.TestInfo.Id));
+                var infoTask = Task.Run(async () => await e.Service.TestItem.GetAsync(e.TestReporter.TestInfo.Uuid));
                 infoTask.Wait();
                 var testInfo = infoTask.Result;
-                e.TestReporter.Log(new ReportPortal.Client.Requests.AddLogItemRequest
+                e.TestReporter.Log(new CreateLogItemRequest
                 {
-                    Level = ReportPortal.Client.Models.LogLevel.Trace,
+                    Level = LogLevel.Trace,
                     Time = DateTime.UtcNow,
                     Text = $"Actual test ID: {testInfo.UniqueId}"
                 });
@@ -71,7 +74,7 @@ namespace Example.ReportPortalCustomization
 
         public void OnTestEvent(string report)
         {
-            
+
         }
     }
 }

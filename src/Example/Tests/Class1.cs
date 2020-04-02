@@ -88,7 +88,7 @@ namespace Example.Tests
         {
             for (int i = 0; i < 20; i++)
             {
-                Log4NetLogger.Info($"Log {i}");
+                Log4NetLogger.Info($"Log4Net {i}");
             }
         }
 
@@ -97,9 +97,9 @@ namespace Example.Tests
         {
             for (int i = 0; i < 20; i++)
             {
-                ReportPortal.Shared.Log.Message(new ReportPortal.Client.Requests.AddLogItemRequest
+                ReportPortal.Shared.Log.Message(new ReportPortal.Client.Abstractions.Requests.CreateLogItemRequest
                 {
-                    Level = ReportPortal.Client.Models.LogLevel.Info,
+                    Level = ReportPortal.Client.Abstractions.Models.LogLevel.Info,
                     Time = DateTime.UtcNow,
                     Text = $"Log {i}"
                 });
