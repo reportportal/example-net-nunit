@@ -74,7 +74,7 @@ namespace Example.Tests
                     {
                         Log.Debug("Level 2 message");
 
-                        scope2.Status = ReportPortal.Client.Abstractions.Models.Status.Failed;
+                        scope2.Status = ReportPortal.Shared.Logging.LogScopeStatus.Failed;
                     }
                 }
             }
