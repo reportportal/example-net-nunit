@@ -2,6 +2,7 @@
 using ReportPortal.Shared;
 using System.Collections;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Example.Tests
 {
@@ -54,20 +55,20 @@ namespace Example.Tests
         }
 
         [Test, TestCaseSource(typeof(Class2), nameof(Source)), Parallelizable(ParallelScope.Children)]
-        public void TestWithTestCaseSource(int input)
+        public async Task TestWithTestCaseSource(int input)
         {
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
             for (int i = 0; i < 2; i++)
             {
                 using (var scope = Log.BeginNewScope($"Scope {i}"))
                 {
                     for (int j = 0; j < 2; j++)
                     {
-                        Thread.Sleep(1);
+                        await Task.Delay(1);
                         scope.Info($"Log {j}");
                     }
 
-                    Thread.Sleep(1);
+                    await Task.Delay(1);
 
                     using (var scope2 = Log.BeginNewScope("Scope Level 2"))
                     {
