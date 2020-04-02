@@ -66,10 +66,8 @@ namespace Example.ReportPortalCustomization
 
         private void ReportPortalListener_BeforeRunStarted(object sender, ReportPortal.NUnitExtension.EventArguments.RunStartedEventArgs e)
         {
-            // add custom tag
-            var attrs = e.StartLaunchRequest.Attributes.ToList();
-            attrs.Add(new ItemAttribute { Value = "custom_tag" });
-            e.StartLaunchRequest.Attributes = attrs;
+            // add custom attributes
+            e.StartLaunchRequest.Attributes.Add(new ItemAttribute { Value = "custom_tag" });
 
             // change custom description
             e.StartLaunchRequest.Description += Environment.NewLine + Environment.OSVersion;
