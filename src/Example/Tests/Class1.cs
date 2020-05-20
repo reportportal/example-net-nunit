@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 
@@ -36,12 +37,12 @@ namespace Example.Tests
         public void Test2()
         {
             Thread.Sleep(1000);
-
+            
             ReportPortal.Shared.Log.Trace("class1 test2 log message");
 
             Thread.Sleep(1000);
 
-            using (var scope = ReportPortal.Shared.Log.BeginNewScope("qwe"))
+            using (var scope = ReportPortal.Shared.Log.BeginScope("qwe"))
             {
                 Thread.Sleep(500);
                 scope.Debug("inner qwe");
@@ -50,7 +51,7 @@ namespace Example.Tests
 
             Thread.Sleep(3000);
 
-            using (var scope = ReportPortal.Shared.Log.BeginNewScope("qwe"))
+            using (var scope = ReportPortal.Shared.Log.BeginScope("qwe"))
             {
                 for (int i = 0; i < 10; i++)
                 {

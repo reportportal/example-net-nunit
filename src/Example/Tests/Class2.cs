@@ -60,7 +60,7 @@ namespace Example.Tests
             await Task.Delay(1000);
             for (int i = 0; i < 2; i++)
             {
-                using (var scope = Log.BeginNewScope($"Scope {i}"))
+                using (var scope = Log.BeginScope($"Scope {i}"))
                 {
                     for (int j = 0; j < 2; j++)
                     {
@@ -70,7 +70,7 @@ namespace Example.Tests
 
                     await Task.Delay(1);
 
-                    using (var scope2 = Log.BeginNewScope("Scope Level 2"))
+                    using (var scope2 = Log.BeginScope("Scope Level 2"))
                     {
                         Log.Debug("Level 2 message");
 
