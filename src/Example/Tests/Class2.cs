@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using ReportPortal.Shared;
+using ReportPortal.Shared.Execution.Logging;
 using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Example.Tests
         [Test]
         public void Test1()
         {
-            ReportPortal.Shared.Log.Trace("class2 test1 log message");
+            Context.Current.Log.Trace("class2 test1 log message");
         }
 
         [Test]
@@ -74,7 +75,7 @@ namespace Example.Tests
                     {
                         Log.Debug("Level 2 message");
 
-                        scope2.Status = ReportPortal.Shared.Logging.LogScopeStatus.Failed;
+                        scope2.Status = LogScopeStatus.Failed;
                     }
                 }
             }

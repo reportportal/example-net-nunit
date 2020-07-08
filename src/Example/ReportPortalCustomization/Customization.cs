@@ -51,7 +51,7 @@ namespace Example.ReportPortalCustomization
             {
                 // waiting until test is being reported to the server and retrieve info
                 e.TestReporter.StartTask.Wait();
-                var infoTask = Task.Run(async () => await e.Service.TestItem.GetAsync(e.TestReporter.TestInfo.Uuid));
+                var infoTask = Task.Run(async () => await e.Service.TestItem.GetAsync(e.TestReporter.Info.Uuid));
                 infoTask.Wait();
                 var testInfo = infoTask.Result;
                 e.TestReporter.Log(new CreateLogItemRequest
