@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using ReportPortal.Shared;
 using System;
 using System.IO;
 using System.Reflection;
@@ -37,7 +38,7 @@ namespace Example.Tests
         public void Test2()
         {
             Thread.Sleep(1000);
-            
+
             ReportPortal.Shared.Log.Trace("class1 test2 log message");
 
             Thread.Sleep(1000);
@@ -134,6 +135,12 @@ namespace Example.Tests
                     Text = $"Log {i}"
                 });
             }
+        }
+
+        [Test]
+        public void TestWithDynamicAttribute()
+        {
+            Context.Current.Metadata.Attributes.Add("my_key", "my_value");
         }
     }
 }
