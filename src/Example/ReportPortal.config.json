@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/reportportal/agent-net-nunit/master/src/ReportPortal.NUnitExtension/ReportPortal.config.schema",
   "enabled": true,
   "server": {
-    "url": "https://web.demo.reportportal.io/api/v1/",
+    "url": "https://demo.reportportal.io/api/v1/",
     "project": "default_personal",
     "authentication": {
-      "uuid": "42d66650-2184-47b7-8317-f92581b8f624"
+      "uuid": "1ba28e3e-a69d-451e-880d-189325bf82b5"
     }
   },
   "launch": {
