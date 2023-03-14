@@ -5,13 +5,13 @@
     "url": "https://demo.reportportal.io/api/v1/",
     "project": "default_personal",
     "authentication": {
-      "uuid": "1ba28e3e-a69d-451e-880d-189325bf82b5"
+      "uuid": "8fa588b5-80ae-453e-9df0-b0847b949a34"
     }
   },
   "launch": {
     "name": "NUnit 3 Demo Launch",
     "description": "this is description",
-    "debugMode": true,
+    "debugMode": false,
     "attributes": [ "t1", "t2", "platform:x64" ]
   },
   "rootNamespaces": [ "Example.dll", "Example", "Tests" ]
