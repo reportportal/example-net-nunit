@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using ReportPortal.Shared;
+using ReportPortal.Shared.Execution.Logging;
 using System;
 using System.IO;
 using System.Reflection;
@@ -19,7 +20,7 @@ namespace Example.Tests
         [Test]
         public void Test1()
         {
-            ReportPortal.Shared.Log.Trace("class1 test1 log message");
+            ReportPortal.Shared.Context.Current.Log.Trace("class1 test1 log message");
             Log4NetLogger.Info("My log message from Log4Net");
             var filePath = TestContext.CurrentContext.TestDirectory + "\\dog.png";
 
@@ -27,10 +28,10 @@ namespace Example.Tests
             TestContext.AddTestAttachment(filePath, "my dog");
 
             // or send directly to ReportPortal
-            ReportPortal.Shared.Log.Info("my dog {rp#file#" + filePath + "}");
+            ReportPortal.Shared.Context.Current.Log.Info("my dog {rp#file#" + filePath + "}");
 
             var jsonBase64 = Convert.ToBase64String(Encoding.Default.GetBytes("{a: true}"));
-            ReportPortal.Shared.Log.Info("my json {rp#base64#application/json#" + jsonBase64 + "}");
+            ReportPortal.Shared.Context.Current.Log.Info("my json {rp#base64#application/json#" + jsonBase64 + "}");
         }
 
         [Test]
@@ -39,11 +40,11 @@ namespace Example.Tests
         {
             Thread.Sleep(1000);
 
-            ReportPortal.Shared.Log.Trace("class1 test2 log message");
+            ReportPortal.Shared.Context.Current.Log.Trace("class1 test2 log message");
 
             Thread.Sleep(1000);
 
-            using (var scope = ReportPortal.Shared.Log.BeginScope("qwe"))
+            using (var scope = ReportPortal.Shared.Context.Current.Log.BeginScope("qwe"))
             {
                 Thread.Sleep(500);
                 scope.Debug("inner qwe");
@@ -52,20 +53,20 @@ namespace Example.Tests
 
             Thread.Sleep(3000);
 
-            using (var scope = ReportPortal.Shared.Log.BeginScope("qwe"))
+            using (var scope = ReportPortal.Shared.Context.Current.Log.BeginScope("qwe"))
             {
                 for (int i = 0; i < 10; i++)
                 {
                     Thread.Sleep(1);
                     scope.Debug("inner qwe " + i);
                     Thread.Sleep(1);
-                    ReportPortal.Shared.Log.Debug("one more inner qwe " + i);
+                    ReportPortal.Shared.Context.Current.Log.Debug("one more inner qwe " + i);
                 }
             }
 
             Thread.Sleep(1000);
 
-            ReportPortal.Shared.Log.Info("End");
+            ReportPortal.Shared.Context.Current.Log.Info("End");
         }
 
         [Test]
@@ -81,7 +82,7 @@ namespace Example.Tests
         public void Test4()
         {
             System.Threading.Thread.Sleep(3000);
-            ReportPortal.Shared.Log.Trace("class1 test4 log message");
+            ReportPortal.Shared.Context.Current.Log.Trace("class1 test4 log message");
             //throw new Exception("abc");
             Assert.IsTrue(false);
         }
@@ -128,11 +129,9 @@ namespace Example.Tests
         {
             for (int i = 0; i < 20; i++)
             {
-                ReportPortal.Shared.Log.Message(new ReportPortal.Client.Abstractions.Requests.CreateLogItemRequest
-                {
-                    Level = ReportPortal.Client.Abstractions.Models.LogLevel.Info,
-                    Time = DateTime.UtcNow,
-                    Text = $"Log {i}"
+                ReportPortal.Shared.Context.Current.Log.Message(new LogMessage($"Log {i}") {
+                    Level = LogMessageLevel.Info,
+                    Time = DateTime.UtcNow
                 });
             }
         }

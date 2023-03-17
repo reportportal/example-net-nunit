@@ -12,20 +12,20 @@ namespace Example.Tests
         [TestCase]
         public void Test1()
         {
-            ReportPortal.Shared.Log.Info("TestCase with Empty [TestCase] attribute");
+            ReportPortal.Shared.Context.Current.Log.Info("TestCase with Empty [TestCase] attribute");
         }
 
         [Description("It is description of TestCase")]
         [TestCase]
         public void Test2()
         {
-            ReportPortal.Shared.Log.Info("TestCase with Description for [TestCase] attribute");
+            ReportPortal.Shared.Context.Current.Log.Info("TestCase with Description for [TestCase] attribute");
         }
 
         [TestCase(TestName = "It is TestName of TestCase")]
         public void Test3()
         {
-            ReportPortal.Shared.Log.Info("TestCase with TestName in [TestCase] attribute");
+            ReportPortal.Shared.Context.Current.Log.Info("TestCase with TestName in [TestCase] attribute");
         }
 
         [TestCase("1", TestName = "It is TestName of TestCase with 1")]
@@ -33,8 +33,8 @@ namespace Example.Tests
         [TestCase("3", TestName = "It is TestName of TestCase with 3")]
         public void Test4(string testParam)
         {
-            ReportPortal.Shared.Log.Info("TestCase with TestName in [TestCase] attribute");
-            ReportPortal.Shared.Log.Info($"TestCase with TestParam {testParam}");
+            ReportPortal.Shared.Context.Current.Log.Info("TestCase with TestName in [TestCase] attribute");
+            ReportPortal.Shared.Context.Current.Log.Info($"TestCase with TestParam {testParam}");
         }
     }
 }

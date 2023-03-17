@@ -9,14 +9,14 @@ namespace Example.Tests.InnerFolder
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ReportPortal.Shared.Log.Info("OneTimeSetUp message");
+            ReportPortal.Shared.Context.Current.Log.Info("OneTimeSetUp message");
             throw new Exception("Assembly SetUpFixture exception.");
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            ReportPortal.Shared.Log.Info("OneTimeTearDown message");
+            ReportPortal.Shared.Context.Current.Log.Info("OneTimeTearDown message");
             throw new Exception("Assembly TearDownFixture exception.");
         }
     }

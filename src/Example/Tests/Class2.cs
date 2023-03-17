@@ -2,7 +2,6 @@
 using ReportPortal.Shared;
 using ReportPortal.Shared.Execution.Logging;
 using System.Collections;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Example.Tests
@@ -61,7 +60,7 @@ namespace Example.Tests
             await Task.Delay(1000);
             for (int i = 0; i < 2; i++)
             {
-                using (var scope = Log.BeginScope($"Scope {i}"))
+                using (var scope = Context.Current.Log.BeginScope($"Scope {i}"))
                 {
                     for (int j = 0; j < 2; j++)
                     {
@@ -71,9 +70,9 @@ namespace Example.Tests
 
                     await Task.Delay(1);
 
-                    using (var scope2 = Log.BeginScope("Scope Level 2"))
+                    using (var scope2 = Context.Current.Log.BeginScope("Scope Level 2"))
                     {
-                        Log.Debug("Level 2 message");
+                        Context.Current.Log.Debug("Level 2 message");
 
                         scope2.Status = LogScopeStatus.Failed;
                     }

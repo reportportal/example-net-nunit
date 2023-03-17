@@ -1,150 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.props" Condition="Exists('..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.props')" />
-  <Import Project="..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" />
-  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
-  <Import Project="..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.props" Condition="Exists('..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{379A05F5-F363-47A7-8FAC-F0146768579F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Example</RootNamespace>
-    <AssemblyName>Example</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <TargetFramework>net6.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.engine.api, Version=3.0.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Engine.Api.3.16.3\lib\net20\nunit.engine.api.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.Client, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Client.3.2.0\lib\net462\ReportPortal.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.Extensions.SourceBack, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Extensions.SourceBack.2.0.1\lib\net45\ReportPortal.Extensions.SourceBack.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.Log4Net, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Log4Net.2.0.0\lib\net45\ReportPortal.Log4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.NUnitExtension, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.4.4.1\lib\net462\ReportPortal.NUnitExtension.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.NUnitExtension.LogHandler, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.NUnit.4.4.1\lib\net462\ReportPortal.NUnitExtension.LogHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportPortal.Shared, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReportPortal.Shared.3.3.0\lib\net462\ReportPortal.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=6.0.0.6, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.6.0.6\lib\net461\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit.Engine.Api" Version="3.16.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.5.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="ReportPortal.NUnit" Version="4.5.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Tests\Class4.cs" />
-    <Compile Include="Tests\Class3.cs" />
-    <Compile Include="Tests\FailedClass.cs" />
-    <Compile Include="Tests\EmptyClass.cs" />
-    <Compile Include="Tests\IgnoredClass.cs" />
-    <Compile Include="Tests\Class2.cs" />
-    <Compile Include="Tests\Class1.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportPortalCustomization\Customization.cs" />
-    <Compile Include="Tests\InnerFolder\Class1.cs" />
-    <Compile Include="Tests\InnerFolder\ClassFixtureSetup.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportPortal.config.json">
+    <None Update="dog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="dog.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.props'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.targets'))" />
-    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.Shared.3.3.0\build\net462\ReportPortal.Shared.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Shared.3.3.0\build\net462\ReportPortal.Shared.targets'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.targets'))" />
-  </Target>
-  <Import Project="..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.targets" Condition="Exists('..\packages\ReportPortal.Extensions.SourceBack.2.0.1\build\net45\ReportPortal.Extensions.SourceBack.targets')" />
-  <Import Project="..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />
-  <Import Project="..\packages\ReportPortal.Shared.3.3.0\build\net462\ReportPortal.Shared.targets" Condition="Exists('..\packages\ReportPortal.Shared.3.3.0\build\net462\ReportPortal.Shared.targets')" />
-  <Import Project="..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.targets" Condition="Exists('..\packages\ReportPortal.NUnit.4.4.1\build\net462\ReportPortal.NUnit.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
